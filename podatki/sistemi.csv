@@ -1,0 +1,14 @@
+proizvajalec,sistem,uw,max_visina_mm,max_sirina_mm,max_teza_kg,globina_okvirja_mm,max_steklo_mm,zrakotesnost,vodotesnost,odpornost_na_veter
+AluK,infinium,1.3,3300,3000,400,,52,Class 4,Class 8A,Class C3
+AluK,sc140tt,"1,7",2800,2500,400,,40,Class 4,Class 8A,Class A4
+AluK,sc156,1.4,3100,2700,300,,50,Class 4,Class E1500,Class B5
+Cortizo,4600plus,0.65,3500,3300,400,,65,Class 4,Class E750,Class C5
+Cortizo,4700,1.0,3000,2500,280,,36,Class 3,Class 7A,Class C5
+Cortizo,corvision,1.3,3000,2500,320,,30,Class 4,Class 7A,Class C5
+Cortizo,corvisionevolution,0.88,3500,3500,500,,44,Class 4,Class E900,Class C5
+Reynaers,conceptpatio130,1.4,2700,2700,300,139,45,Class 4,Class E750,Class B5
+Reynaers,conceptpatio155,0.99,3500,2700,,155,52,Class 4,Class E900,Class C4
+Reynaers,conceptpatio68,1.4,2800,1500,200,68,38,Class 4,Class 7B,Class C4
+Reynaers,hifinity,0.8,4000,3500,750,148,54,Class 4,Class E750,Class C5
+Reynaers,masterpatio,0.8,3600,3600,600,180,62,Class 4,Class E1200,Class C5
+Reynaers,slimpatio68,1.4,3000,2300,250,120,36,Class 4,Class 8A,Class C4

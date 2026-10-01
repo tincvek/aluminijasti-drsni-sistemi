@@ -216,3 +216,8 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+html-ji/
+.vscode/
+.ipynb_checkpoints/
+.DS_Store
