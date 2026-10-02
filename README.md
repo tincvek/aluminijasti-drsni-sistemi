@@ -102,4 +102,4 @@ Ker proizvajalci podatke na svojih spletnih straneh zapisujejo na različne nač
 
 Pri izdelavi seminarske naloge sem uporabljala ChatGPT za pomoč pri razlagi regularnih izrazov, odpravljanju napak v kodi, prilagajanju izluščanja podatkov različnim proizvajalcem ter pri analizi podatkov.
 
-Podrobnejši povzetek uporabe ChatGPT je v datoteki `uporaba_chatgpt.md`.
+Podrobnejši povzetek uporabe ChatGPT je v datoteki `povzetek_pogovora_chatgpt.md`.
