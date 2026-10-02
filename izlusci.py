@@ -5,16 +5,16 @@ import re
 import html
 
 
-html_directory = "html-ji"
-csv_directory = "podatki"
-csv_filename = "sistemi.csv"
+html_mapa = "html-ji"
+csv_mapa = "podatki"
+csv_ime_datoteke = "sistemi.csv"
 
 
-def preberi_datoteko(directory, filename):
+def preberi_datoteko(mapa, ime_datoteke):
     
     #Prebere vsebino HTML datoteke in jo vrne kot niz.
     
-    path = os.path.join(directory, filename)
+    path = os.path.join(mapa, ime_datoteke)
 
     with open(path, "r", encoding="utf-8") as file_in:
         text = file_in.read()
@@ -46,21 +46,21 @@ def html_to_text(page_content):
     return text.strip()
 
 
-def poisci_vrednosti(pattern, text):
+def poisci_vrednosti(vzorec, text):
     
     #Poišče podatek z regularnim izrazom.
     #Če ga ne najde, vrne prazen niz.
     
 
-    match = re.search(pattern, text, flags=re.IGNORECASE)
+    rezultat = re.search(vzorec, text, flags=re.IGNORECASE)
 
-    if match is None:
+    if rezultat is None:
         return ""
 
-    return match.group(1).strip()
+    return rezultat.group(1).strip()
 
 
-def najdi_podatke_sistemov(page_content, filename):
+def najdi_podatke_sistemov(page_content, ime_datoteke):
     
     #Iz HTML-ja izlušči tehnične podatke in vrne slovar.
     
@@ -68,19 +68,19 @@ def najdi_podatke_sistemov(page_content, filename):
     text = html_to_text(page_content)
 
     # proizvajalec bomo zaenkrat določili iz imena datoteke
-    if filename.lower().startswith("reynaers"):
+    if ime_datoteke.lower().startswith("reynaers"):
         proizvajalec = "Reynaers"
-    elif filename.lower().startswith("aluk"):
+    elif ime_datoteke.lower().startswith("aluk"):
         proizvajalec = "AluK"
-    elif filename.lower().startswith("schuco"):
+    elif ime_datoteke.lower().startswith("schuco"):
         proizvajalec = "Schüco"
-    elif filename.lower().startswith("cortizo"):
+    elif ime_datoteke.lower().startswith("cortizo"):
         proizvajalec = "Cortizo"
     else:
         proizvajalec = ""
 
     # ime sistema iz imena datoteke
-    sistem = filename.replace(".html", "")
+    sistem = ime_datoteke.replace(".html", "")
     sistem = sistem.replace("reynaers_", "")
     sistem = sistem.replace("aluk_", "")
     sistem = sistem.replace("schuco_", "")
@@ -135,30 +135,30 @@ def najdi_podatke_sistemov(page_content, filename):
 }
 
 
-def pridobi_sisteme_iz_mape(directory):
+def pridobi_sisteme_iz_mape(mapa):
     
     #Prebere vse HTML datoteke iz mape in iz vsake
     # naredi slovar z enim sistemom.
     
 
-    systems = []
+    sistemi = []
 
-    for filename in os.listdir(directory):
+    for ime_datoteke in os.listdir(mapa):
 
-        if filename.endswith(".html"):
-            page_content = preberi_datoteko(directory, filename)
+        if ime_datoteke.endswith(".html"):
+            page_content = preberi_datoteko(mapa, ime_datoteke)
 
-            system = najdi_podatke_sistemov(page_content, filename)
+            sistem = najdi_podatke_sistemov(page_content, ime_datoteke)
 
-            systems.append(system)
+            sistemi.append(sistem)
 
-    return systems
+    return sistemi
 
 
-def write_csv(fieldnames, rows, directory, filename):
-    os.makedirs(directory, exist_ok=True)
+def write_csv(fieldnames, rows, mapa, ime_datoteke):
+    os.makedirs(mapa, exist_ok=True)
 
-    path = os.path.join(directory, filename)
+    path = os.path.join(mapa, ime_datoteke)
 
     with open(path, "w", encoding="utf-8", newline="") as csv_file:
         writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
@@ -171,7 +171,7 @@ def write_csv(fieldnames, rows, directory, filename):
 
 def main():
 
-    systems = pridobi_sisteme_iz_mape(html_directory)
+    sistemi = pridobi_sisteme_iz_mape(html_mapa)
 
 
     fieldnames = [
@@ -190,9 +190,9 @@ def main():
 
     write_csv(
         fieldnames,
-        systems,
-        csv_directory,
-        csv_filename
+        sistemi,
+        csv_mapa,
+        csv_ime_datoteke
     )
 
     

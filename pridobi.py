@@ -51,7 +51,7 @@ for ime_datoteke, url in strani.items():
     
     odgovor = requests.get(url)
 
-    # Izpišemo ime datoteke, statusno kodo in dolžino HTML-ja.
+    # Izpiše ime datoteke, statusno kodo in dolžino HTML-ja.
     # preverjanje, ali se je stran pravilno prenesla.
     print(
         ime_datoteke,
@@ -59,9 +59,7 @@ for ime_datoteke, url in strani.items():
         len(odgovor.text)
     )
 
-    # Statusna koda 200 pomeni:
-    # zahteva je bila uspešna in strežnik je vrnil spletno stran.
-    # Zato HTML shranimo samo, če je status 200.
+    # Statusna koda 200 pomeni: zahteva je bila uspešna in strežnik je vrnil spletno stran. Zato HTML shranimo samo, če je status 200.
     if odgovor.status_code == 200:
 
         
