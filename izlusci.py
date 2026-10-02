@@ -87,7 +87,7 @@ def najdi_podatke_sistemov(page_content, filename):
     sistem = sistem.replace("cortizo_", "")
     sistem = sistem.replace("_", " ")
 
-    uw = poisci_vrednosti(r"(?:Thermal insulation\s*-\s*Uw|Uw value|Thermal transmittance|U value W/m²K \(Double glazing\)\s*:).*?<?\s*(\d+[.,]\d+)", text)
+    toplotna_prehodnost = poisci_vrednosti(r"(?:Thermal insulation\s*-\s*Uw|Uw value|Thermal transmittance|U value W/m²K \(Double glazing\)\s*:).*?<?\s*(\d+[.,]\d+)", text)
 
     max_visina = poisci_vrednosti(r"(?:Max\.?\s*height of vent|Max sash height|Max Frame Height|Maximum sash dimensions.*?Height\s*\(H\)).*?(\d+)", text)
 
@@ -97,7 +97,7 @@ def najdi_podatke_sistemov(page_content, filename):
 
     globina_okvirja = poisci_vrednosti(r"(?:Depth\s+frame\s+2[- ]rail|Frame depth|Frame dimension|frame_dimension).*?(\d+)", text)
 
-    max_steklo = poisci_vrednosti(r"(?:Max\.?\s*glass thickness|Max glass thickness|Glazing\s*Max\.|Glazing thickness).*?(\d+)(?:\s*mm)?(?:\s*-\s*(\d+)\s*mm)?", text)
+    najvecja_debelina_stekla = poisci_vrednosti(r"(?:Max\.?\s*glass thickness|Max glass thickness|Glazing\s*Max\.|Glazing thickness).*?(\d+)(?:\s*mm)?(?:\s*-\s*(\d+)\s*mm)?", text)
 
     steklo = re.search(r"(?:Max\.?\s*glass thickness|Max glass thickness|Glazing\s*Max\.|Glazing thickness).*?(\d+)\s*mm(?:\s*-\s*(\d+)\s*mm)?",text,flags=re.IGNORECASE)
 
@@ -123,12 +123,12 @@ def najdi_podatke_sistemov(page_content, filename):
     return {
     "proizvajalec": proizvajalec,
     "sistem": sistem,
-    "uw": uw,
+    "toplotna_prehodnost": toplotna_prehodnost,
     "max_visina_mm": max_visina,
     "max_sirina_mm": max_sirina,
     "max_teza_kg": max_teza,
     "globina_okvirja_mm": globina_okvirja,
-    "max_steklo_mm": max_steklo,
+    "najvecja_debelina_stekla_mm": najvecja_debelina_stekla,
     "zrakotesnost": zrakotesnost,
     "vodotesnost": vodotesnost,
     "odpornost_na_veter": veter
@@ -177,12 +177,12 @@ def main():
     fieldnames = [
     "proizvajalec",
     "sistem",
-    "uw",
+    "toplotna_prehodnost",
     "max_visina_mm",
     "max_sirina_mm",
     "max_teza_kg",
     "globina_okvirja_mm",
-    "max_steklo_mm",
+    "najvecja_debelina_stekla_mm",
     "zrakotesnost",
     "vodotesnost",
     "odpornost_na_veter"
