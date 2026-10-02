@@ -62,8 +62,6 @@ Analiza vključuje:
 - primerjavo globine okvirjev
 - primerjavo proizvajalcev
 - analizo zrakotesnosti
-- analizo vodotesnosti
-- analizo odpornosti na veter
 - osnovni statistični pregled podatkov
 - tabelarične prikaze rezultatov
 - stolpčne, tortne, črtne in raztresene grafe
