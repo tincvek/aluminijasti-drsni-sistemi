@@ -99,3 +99,9 @@ Projekt omogoča primerjavo različnih aluminijastih drsnih sistemov na podlagi 
 Z avtomatskim pridobivanjem in izluščanjem podatkov je mogoče podatke različnih proizvajalcev združiti v enoten podatkovni nabor ter jih nato analizirati in grafično prikazati.
 
 Ker proizvajalci podatke na svojih spletnih straneh zapisujejo na različne načine, je bilo pri izdelavi potrebno prilagoditi regularne izraze tako, da pravilno prepoznajo različne zapise enakih tehničnih lastnosti.
+
+## Uporaba ChatGPT
+
+Pri izdelavi seminarske naloge sem uporabljala ChatGPT za pomoč pri razlagi regularnih izrazov, odpravljanju napak v kodi, prilagajanju izluščanja podatkov različnim proizvajalcem ter pri analizi podatkov.
+
+Podrobnejši povzetek uporabe ChatGPT je v datoteki `uporaba_chatgpt.md`.
